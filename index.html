@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Him.</title>
+    <meta name="theme-color" content="#050505">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background FX -->
+    <div class="stars"></div>
+    <canvas id="bg-canvas"></canvas>
+    <div class="noise-overlay"></div>
+
+    <!-- Audio Player -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="audio-visualizer" id="audio-control">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Custom Cursor (Visible only on Desktop) -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-circle" id="cursor-circle"></div>
+
+    <!-- Screen 0: Entrance -->
+    <section class="screen active" id="screen-0">
+        <div class="content-wrap">
+            <div class="glitch-text" data-text="UNAUTHORIZED_ACCESS">UNAUTHORIZED_ACCESS</div>
+            <h1 class="title-lg">Careful.</h1>
+            <p class="text-md">This isn’t meant for you.</p>
+            <p class="text-md subtle">But I hoped you’d find it.</p>
+            <button class="start-btn" id="enter-btn">
+                COME CLOSER
+                <span class="btn-sub">YOU’VE BEEN WARNED</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Screen 1: The Context -->
+    <section class="screen" id="screen-1">
+        <div class="content-wrap">
+            <h2 class="title-lg">We shouldn’t.</h2>
+            <p class="text-md">I know what makes sense.</p>
+            <p class="text-md delay-1">I know what we promised ourselves.</p>
+            <p class="text-md delay-2 highlight">But sense doesn’t keep me awake.</p>
+            <div class="tap-hint">Tap</div>
+        </div>
+    </section>
+
+    <!-- Screen 2: The Feeling -->
+    <section class="screen" id="screen-2">
+        <div class="content-wrap">
+            <p class="text-md">I know I complicate things.</p>
+            <p class="text-md delay-1">I know this feeling asks for too much.</p>
+            <h2 class="title-lg delay-2">I’ve tried to unfeel you.</h2>
+            <p class="text-md delay-3 subtle">It didn’t work.</p>
+            <div class="tap-hint">Tap</div>
+        </div>
+    </section>
+
+    <!-- Screen 3: The Desire -->
+    <section class="screen" id="screen-3">
+        <div class="content-wrap">
+            <div class="list-container">
+                <p class="text-md">But if I’m honest—</p>
+                <p class="text-md delay-1">I want to be the thought you linger on.</p>
+                <p class="text-md delay-2 highlight">The one on your mind at 2am.</p>
+                <h2 class="title-lg delay-3">The mistake you don’t regret.</h2>
+            </div>
+            <div class="tap-hint">Tap</div>
+        </div>
+    </section>
+
+    <!-- Screen 4: The Reality -->
+    <section class="screen screen-manifesto" id="screen-4">
+        <div class="content-wrap">
+            <p class="manifesto-line delay-0">If timing were kinder…</p>
+            <p class="manifesto-line delay-1">I’d show up at your door.</p>
+            <p class="manifesto-line delay-2">I'd stand too close.</p>
+            <p class="manifesto-line delay-3 highlight">And I'd give you a reason to stay.</p>
+            <div class="tap-hint">Tap</div>
+        </div>
+    </section>
+
+    <!-- Screen 5: The Details -->
+    <section class="screen" id="screen-5">
+        <div class="content-wrap">
+            <p class="text-md">I notice things.</p>
+            <p class="text-md delay-1">The way your voice changes when you're tired.</p>
+            <p class="text-md delay-2">How you hold back a smile.</p>
+            <h2 class="title-lg delay-3">I'm paying attention.<br>Always.</h2>
+            <div class="tap-hint">Tap</div>
+        </div>
+    </section>
+
+    <!-- Screen 6: The Song -->
+    <section class="screen" id="screen-6">
+        <div class="content-wrap">
+            <p class="text-md italics">"Je te laisserai des mots..."</p>
+            <div class="spacer" style="height: 20px;"></div>
+            <p class="text-md delay-1">I will leave you notes<br>underneath your door.</p>
+            <p class="text-md delay-2">Under the singing walls.</p>
+            <p class="text-md delay-3">Near the place where your feet pass.</p>
+            <p class="text-md delay-4">Hidden in the holes of your couch.</p>
+            <p class="text-md delay-5">And when you're alone for a moment.</p>
+            <h2 class="title-lg delay-6">Pick me up<br>Whenever you want.</h2>
+        </div>
+    </section>
+
+    <!-- Screen 7: Final -->
+    <section class="screen screen-final" id="screen-7">
+        <div class="content-wrap">
+            <h1 class="huge-text">I'm Yours.</h1>
+            <p class="text-md">Subtly.</p>
+            <p class="final-sub">HAPPY VALENTINE'S DAY</p>
+            <button class="start-btn" id="restart-btn" style="margin-top: 50px;">
+                AGAIN
+            </button>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
